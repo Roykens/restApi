@@ -14,14 +14,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface IPointDeVenteDao extends IGenericDao<PointDeVente> {
     
-     /**
-     *
-     * @param latitude
-     * @param longitude
-     * @return nearest stations
-     */
-    @Query(value = "SELECT *, ( 6371 * acos( cos( radians(:lat) ) * cos( radians( LATITUDE ) ) * cos( radians( LONGITUDE ) - radians(:long) ) + sin( radians(:lat) ) * sin( radians( LATITUDE ) ) ) ) AS distance FROM pointdevente HAVING distance < 1.1 ORDER BY distance ;", nativeQuery = true)
-    List<PointDeVente> findNearest(@Param("lat") double latitude, @Param("long") double longitude);
-
+ 
     
 }

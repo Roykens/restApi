@@ -19,7 +19,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlAccessorType(XmlAccessType.FIELD)
 @Table(name = "pointdevente")
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-@NamedNativeQuery(name = "Pdv.findNearest",query = "SELECT *, ( 6371 * acos( cos( radians( ? ) ) * cos( radians( LATITUDE ) ) * cos( radians( LONGITUDE ) - radians( ? ) ) + sin( radians( ? ) ) * sin( radians( LATITUDE ) ) ) ) AS distance FROM pointdevente HAVING distance < 1.1 ORDER BY distance;", resultClass = PointDeVente.class)
 public class PointDeVente extends BaseClass{
     private static final long serialVersionUID = 1L;
     
